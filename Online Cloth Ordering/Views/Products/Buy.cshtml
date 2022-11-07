@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@foreach (var UserName in ViewBag.UserName){
+<h1>Bill </h1>
+<hr/>
+<h4>Hii @UserName.name , Here is Your Bill </h4>
+<br />
+<dl class="row">
+    <dt class="col-sm-2"> <h5>
+    Total Prices  </h5>
+    </dt>
+    <dd class="col-sm-10"> <h5>
+        @UserName.total </h5>
+    </dd>
+</dl>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ProductName
+            </th>
+            <th>
+               ProductPrices
+            </th>
+            <th>
+              Quantity
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in UserName.listof)
+            {
+        <tr>
+            <td>    
+                @item.ProductName
+            </td>
+            <td>
+                @item.ProductPrices
+            </td>
+            <td>
+                @item.Quantity
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+<a class="btn btn-primary" asp-action="Index">Back to Home</a>
+
+
+
+              }

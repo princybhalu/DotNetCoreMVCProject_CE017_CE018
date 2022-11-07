@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Online_Cloth_Ordering.ViewModel.Products>
+
+<h1> All Products</h1>
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+<p class="text-danger text-center">@ViewBag.Result</p>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductBrand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrices)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductBrand)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |*@
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-action="AddToCart" asp-route-id="@item.ProductId">Add To Cart</a> 
+                @* | <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
